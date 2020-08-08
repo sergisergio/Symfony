@@ -5,9 +5,18 @@
 {% block body %}
     <div class="jumbotron text-center">
       <div class="container">
-      <h1>Voir tous nos biens</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi facilis, alias sapiente fuga deserunt quas neque dolorum! Magnam ipsa asperiores vitae placeat. Sint impedit minus distinctio, sunt est culpa deleniti!</p>
+      <h1 class="mb-4">Voir tous nos biens</h1>
 
+      <div class="row">
+        {% for property in properties %}
+        <div class="col-md-4">
+            {% include 'property/_property.html.twig' %}
+        </div>
+        {% endfor %}
+      </div>
+
+      <div class="pagination mt-4 d-flex justify-content-center">
+          {{ knp_pagination_render(properties) }}
+      </div>
     </div>
-  </div>
 {% endblock %}
