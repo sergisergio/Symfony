@@ -15,12 +15,17 @@ class PropertyController extends AbstractController
      */
     private $repository;
 
+    /**
+     * @var EntityManagerInterface
+     */
+    private $em;
+
     public function __construct(PropertyRepository $repository, EntityManagerInterface $em) {
         $this->repository = $repository;
         $this->em = $em;
     }
     /**
-     * @Route("/biens", name="property.index")
+     * @Route("/properties", name="property.index")
      */
     public function index()
     {
@@ -52,7 +57,7 @@ class PropertyController extends AbstractController
     }
 
     /**
-     * @Route("/biens/{slug}-{id}", name="property.show", requirements={"slug": "[a-z0-9\-]*"})
+     * @Route("/properties/{slug}-{id}", name="property.show", requirements={"slug": "[a-z0-9\-]*"})
      */
     public function show(Property $property, string $slug)
     {
