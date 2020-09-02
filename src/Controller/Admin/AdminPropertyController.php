@@ -7,6 +7,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use App\Repository\PropertyRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Entity\Property;
+use App\Entity\Option;
 use App\Form\PropertyType;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -65,6 +66,9 @@ class AdminPropertyController extends AbstractController
      */
     public function edit(Property $property, Request $request)
     {
+        // $option = new Option();
+        // $property->addOption($option);
+
         $form = $this->createForm(PropertyType::class, $property);
         $form->handleRequest($request);
 
