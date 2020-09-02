@@ -1,6 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Modifier un bien{% endblock %}
+{% block title %}Créer un bien{% endblock %}
+{% block stylesheets %}
+
+{% endblock %}
 
 {% block body %}
 
@@ -8,5 +11,9 @@
         <h2>Editer le bien</h2>
         {{ include('admin/property/_form.html.twig', {form: form, button:'Ajouter'}) }}
     </div>
+
+{% endblock %}
+
+{% block javascripts %}
 
 {% endblock %}
