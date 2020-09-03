@@ -10,6 +10,10 @@ use App\Entity\Property;
 use App\Entity\Option;
 use App\Form\PropertyType;
 use Symfony\Component\HttpFoundation\Request;
+//use Symfony\Component\HttpFoundation\File\UploadedFile;
+//use Liip\ImagineBundle\Imagine\Cache\CacheManager;
+//use Vich\UploaderBundle\Templating\Helper\UploaderHelper;
+
 
 class AdminPropertyController extends AbstractController
 {
@@ -64,7 +68,7 @@ class AdminPropertyController extends AbstractController
      * @param  Property $property
      * @param  Request $request
      */
-    public function edit(Property $property, Request $request)
+    public function edit(Property $property, Request $request/*, CacheManager $cacheManager, UploaderHelper $helper*/)
     {
         // $option = new Option();
         // $property->addOption($option);
@@ -73,6 +77,10 @@ class AdminPropertyController extends AbstractController
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()) {
+            // if ($property->getImageFile() instanceof UploadedFile) {
+            //     $cacheManager->remove($helper->asset($property, 'imageFile'));
+            // }
+
             $this->em->flush();
             $this->addFlash('success', 'Bien modifié avec succès');
             return $this->redirectToRoute('admin.property.index');
