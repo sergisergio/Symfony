@@ -12,12 +12,13 @@
               </div>
           {% endfor %}
 
-          {% if not form.vars.valid %}
+          {% if form is defined %}
+            {% if not form.vars.valid %}
             <div class="alert alert-danger">
                   Une erreur est survenue
             </div>
+            {% endif %}
           {% endif %}
-
       <table class="table table-striped">
           <thead>
             <tr>
